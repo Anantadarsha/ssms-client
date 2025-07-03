@@ -234,7 +234,6 @@ const Ledger = () => {
                   <td>
                     <Link
                       className="bg-blue-600 p-2 rounded-xl text-white hover:bg-blue-600 transition-colors"
-                      target="_blank"
                       to={`/marksheet/${d.examYear}/${d.examTerm}/${d.clss}/${d.student?._id}`}
                     >
                       {" "}
