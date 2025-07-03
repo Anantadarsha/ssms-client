@@ -1,0 +1,84 @@
+.printTable th{
+    border-right: 2px solid black;
+    padding: 2px;
+}
+
+table th{
+    border-right: 3px solid rgb(200, 200, 200);
+    padding: 2px;
+}
+
+
+
+.second-row{
+    border-top: 3px solid rgb(200, 200, 200) ;
+}
+
+.printTable tbody tr td{
+    border: none;
+    border-right: 2px solid black;
+    padding:5px;
+}
+
+tbody tr td{
+    border-right: 3px solid rgb(200, 200, 200);
+    border-top: 3px solid rgb(200, 200, 200);
+    padding:5px;
+}
+
+.last{
+    border-right: 0;
+}
+
+#printableArea{
+    width: 1000px;
+    height: fit-content;
+    background-color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 5px solid #8b08ee;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+    
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printableArea, #printableArea * {
+    visibility: visible;
+  }
+
+  #printableArea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* or specific size */
+  }
+
+  .printMarksheet {
+    display: none;
+  }
+
+  @page {
+    size: A4;
+    margin: 1in; /* Change to your preferred margin */
+  }
+}
