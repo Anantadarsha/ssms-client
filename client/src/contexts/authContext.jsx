@@ -22,7 +22,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = (token, remember) => {
-    console.log(remember)
     if(remember) {
         localStorage.setItem("token", token);
     } else {

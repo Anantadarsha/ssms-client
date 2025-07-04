@@ -6,17 +6,19 @@ import { useAuth } from "../contexts/authContext";
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const [loading, setIsLoading] = useState(false);
   const [remember, setRemember] = useState(false);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+    setIsLoading(true);
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const host = import.meta.env.VITE_HOST_URL;
 
     if (!username.trim() || !password.trim()) {
       toast("All Fileds are required");
+      setIsLoading(false);
       return false;
     }
 
@@ -39,11 +41,12 @@ const Login = () => {
     const r = await response.json();
 
     if (response.ok) {
-      console.log(remember);
       login(r.token, remember);
+      setIsLoading(false);
       //user can't come back to login page onced login with replace: true
       navigate("/", { replace: true });
     } else {
+      setIsLoading(false);
       r.message.forEach((m) => toast(m));
     }
   };
@@ -97,8 +100,17 @@ const Login = () => {
           </div>
 
           <div className="p-2.5">
-            <button className="w-full bg-blue-600 outline-none text-white text-lg rounded-lg p-1 cursor-pointer hover:transition-colors hover:bg-blue-500">
-              Login
+            <button
+              className="w-full bg-blue-600 outline-none text-white text-lg rounded-lg p-1 cursor-pointer hover:transition-colors hover:bg-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="flex items-center justify-center">
+                  <span className="loader"></span> &nbsp; Logging you in...
+                </span>
+              ) : (
+                "Login"
+              )}
             </button>
           </div>
         </form>

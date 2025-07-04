@@ -116,7 +116,7 @@ const Marksheet = () => {
 
   return (
     <div className="py-2 w-full flex justify-center">
-      {loading && <p>Loading Marksheet...</p>}
+      {loading && <p className="w-fit p-3 absolute top-15 right-10 bg-green-200 border-2 border-green-500 text-black rounded-2xl text-xm mt-5 flex items-center"> <span class="loader"></span> &nbsp; Loading Marksheet...</p>}
       {error && (
         <p className="w-fit p-3 bg-red-400 border-2 border-red-500 text-white rounded-2xl text-xm mt-5">
           Error: {error}
@@ -128,26 +128,26 @@ const Marksheet = () => {
           <div id="printableArea" className="flex justify-center items-center">
             <div className=" w-15/16 h-11/12 flex justify-center items-center border-4 border-solid border-blue-500 mt-5 mb-5">
               <div className="w-15/16 h-11/12 border-0 border-solid border-blue-500">
-                <h1 className="text-[1.775rem] text-center mt-5 uppercase font-bold">
+                <h1 className="text-3xl text-center mt-5 uppercase font-bold">
                   Shree anantadarsha sanskrit ved vidyalaya
                 </h1>
-                <h3 className="text-xl text-center mt-2">
+                <h3 className="text-2xl text-center mt-3">
                   Shivasatakshi - 10, Maidhar, Jhapa, Koshi Province, Nepal
                 </h3>
-                <img src={logo} className="w-25 h-25 absolute top-30" />
-                <p className="text-center mt-5">ESTD: B.S. 2028</p>
-                {/* <p className="text-center">Contact: 023-000000</p> */}
+                <img src={logo} className="w-32 h-32 absolute top-35" />
+                <p className="text-center mt-10 text-xl">ESTD: B.S. 2028</p>
+                <p className="text-center text-xl">Contact: 023-410185</p>
 
-                <p className="text-center"> EMIS Code No.: 040440026</p>
+                <p className="text-center text-xl"> EMIS Code No.: 040440026</p>
 
-                <p className="text-center text-[1.6rem] font-bold mt-8 uppercase">
-                  {examTerm === "FINAL" ? "annual" : examTerm} terminal
+                <p className="text-center text-[1.7rem] font-bold mt-10 uppercase">
+                  {examTerm === "FINAL" ? "annual " : examTerm + " terminal "} 
                   examination - {examYear}
                 </p>
                 <p className="text-center text-2xl font-semibold mt-3">
                   GRADE-SHEET
                 </p>
-                <div className="w-full flex flex-row justify-between mt-8 text-xl px-5">
+                <div className="w-full flex flex-row justify-between mt-10 text-xl px-5">
                   <div>
                     <div>Name: {student?.name}</div>
                     <div className="mt-3">Roll: {student?.roll}</div>
@@ -157,7 +157,7 @@ const Marksheet = () => {
                     <div className="mt-3">EMIS Code: {student?.emis}</div>
                   </div>
                 </div>
-                <table className="printTable w-full mt-8 text-xl uppercase border-2 border-black">
+                <table className="printTable w-full mt-10 text-xl uppercase border-2 border-black">
                   <thead>
                     <tr className="border-2">
                       <th rowSpan={2}>S.N</th>
@@ -197,7 +197,7 @@ const Marksheet = () => {
                     </tr>
                   </tbody>
                 </table>
-                <div className="flex flex-row justify-between text-xl mt-25 mb-5">
+                <div className="flex flex-row justify-between text-xl mt-45 mb-5">
                   <div>
                     <p className="w-50 text-center border-t-2 border-black">
                       Class Teacher

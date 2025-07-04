@@ -145,7 +145,7 @@ const ViewAll = () => {
             <div>
               <button
                 onClick={handleLoadData}
-                className="w-40 h-10 rounded-lg text-white bg-blue-600 cursor-pointer hover:bg-blue-500 transition-colors"
+                className="w-40 h-10 rounded-lg text-white bg-blue-600 cursor-pointer hover:bg-blue-500 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
                 disabled={isLoading}
               >
                 {isLoading ? "Loading.." : "Load Data"}

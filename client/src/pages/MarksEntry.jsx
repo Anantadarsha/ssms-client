@@ -3,6 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { useAuth } from "../contexts/authContext";
 
 const MarksEntry = () => {
+
   const { token } = useAuth();
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const MarksEntry = () => {
         const option = document.createElement("option");
         option.value = m._id;
         option.text = m.name;
+        dropdown.replaceChildren();
         dropdown.appendChild(option);
       });
       setLoading(false);
@@ -191,7 +193,8 @@ const MarksEntry = () => {
             </div>
             <div>
               <button
-                className="p-2 rounded-lg mt-1 ml-5 text-white bg-blue-600 cursor-pointer hover:bg-blue-500 transition-colors"
+                className="p-2 rounded-lg mt-1 ml-5 text-white bg-blue-600 cursor-pointer hover:bg-blue-500 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                disabled={loading}
                 onClick={handleLoadData}
               >
                 Load Data
@@ -206,7 +209,7 @@ const MarksEntry = () => {
           </label>
           <select
             id="name"
-            className="w-80 bg-gray-50 border-2 border-gray-300 outline-none text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            className="p-1 w-80 bg-gray-50 border-2 border-gray-300 outline-none text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500"
           ></select>
         </div>
 
@@ -368,7 +371,7 @@ const MarksEntry = () => {
             />
           </div>
         </div>
-        <button className="w-60 h-10 float-end rounded-lg ml-5 text-white bg-blue-600 cursor-pointer hover:bg-blue-500 transition-colors">
+        <button className="w-60 h-10 float-end rounded-lg ml-5 text-white bg-blue-600 cursor-pointer hover:bg-blue-500 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed" disabled={loading}>
           Save
         </button>
       </form>
