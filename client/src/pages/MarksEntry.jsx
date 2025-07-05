@@ -15,6 +15,7 @@ const MarksEntry = () => {
   const handleLoadData = async (e) => {
     e.preventDefault();
     setLoading(true);
+    
     const year = document.getElementById("year").value;
     const clss = document.getElementById("clss").value;
     const host = import.meta.env.VITE_HOST_URL;
@@ -37,11 +38,11 @@ const MarksEntry = () => {
     const resdata = await response.json();
     if (response.ok) {
       const dropdown = document.getElementById("name");
+       dropdown.replaceChildren();
       resdata.data.forEach((m) => {
         const option = document.createElement("option");
         option.value = m._id;
         option.text = m.name;
-        dropdown.replaceChildren();
         dropdown.appendChild(option);
       });
       setLoading(false);
