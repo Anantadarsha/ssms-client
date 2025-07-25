@@ -21,9 +21,9 @@ const Marksheet = () => {
     "Nepali",
     "English",
     "Maths",
-    "Sanskrit Language",
-    "Ved",
-    "Vyakarana",
+    "Sanskrit Language and Vyakarana",
+    "Shuklayajurveda",
+    "Sanskrit Vyakarana",
     "Karmakanda",
     "Social",
   ];
