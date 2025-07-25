@@ -224,8 +224,8 @@ const Ledger = () => {
                   <td>{d.sopr}</td>
                   <td>{d.vdth}</td>
                   <td>{d.vdpr}</td>
-                  <td>{d.vypr}</td>
                   <td>{d.vyth}</td>
+                  <td>{d.vypr}</td>
                   <td>{d.kkth}</td>
                   <td>{d.kkpr}</td>
                   <td>{d.snth}</td>
